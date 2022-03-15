@@ -1,0 +1,59 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px;
+  min-height: 100vh;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  column-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.82);
+  padding: 10px;
+}
+
+form>*{
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+label{
+  font-size: 0.9rem;
+  font-family: "DejaVu Sans Mono", sans-serif;
+}
+
+textarea{
+  height: 100px;
+  resize: none;
+}
+
+.error{
+  color: red;
+  font-size: 0.8rem;
+}
+
+a{
+  font-size: 0.8rem;
+}
+
+input{
+  width: 300px;
+  padding: 5px;
+}

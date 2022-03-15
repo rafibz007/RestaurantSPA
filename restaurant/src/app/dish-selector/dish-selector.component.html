@@ -1,0 +1,5 @@
+<div class="buttons" *ngIf="dish.maxServingAmount>0">
+  <app-add-button [dish]="dish" #add></app-add-button>
+  <div class="counter">{{dish.selectedAmount}}</div>
+  <app-remove-button [dish]="dish" #remove></app-remove-button>
+</div>

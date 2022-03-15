@@ -1,0 +1,24 @@
+div{
+  width: 30px;
+  height: 30px;
+  background-color: #30e330;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  border-radius: 10px;
+}
+
+div:hover{
+  background-color: #12d912;
+  cursor: pointer;
+}
+
+.locked{
+  background-color: #425042!important;
+}
+
+div.locked:hover{
+  background-color: #425042!important;
+  cursor: unset;
+}

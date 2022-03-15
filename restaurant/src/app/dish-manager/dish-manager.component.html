@@ -1,0 +1,17 @@
+<app-add-dish></app-add-dish>
+
+<table>
+  <tr *ngFor="let dish of dishesList">
+    <td class="title">{{dish.name}}</td>
+    <td><a [routerLink]="['/edit',dish._id]" class="edit">edit</a></td>
+    <td><span class="delete" (click)="removeDish(dish)">delete</span></td>
+  </tr>
+</table>
+
+<div *ngIf="loading">
+  Wczytywanie dań...
+</div>
+
+<div *ngIf="dishesList.length === 0 && !loading">
+  Brak dan spelniajacych podane kategorie
+</div>

@@ -1,0 +1,25 @@
+<form #form="ngForm" [formGroup]="newComment" (ngSubmit)="onSubmit(form)">
+  <div>
+    <label for="name">Tytuł*:</label>
+    <input type="text" id="name" formControlName="name">
+    <div class="error" *ngIf="newComment.controls['name'].invalid && newComment.controls['name'].touched">
+      Podaj tytuł.
+    </div>
+  </div>
+  <div>
+    <label for="body">Treść*:</label>
+    <textarea type="text" id="body" formControlName="body"></textarea>
+    <div class="error" *ngIf="newComment.controls['body'].invalid && newComment.controls['body'].touched">
+      Podaj treść o długości 50-500 znaków.
+    </div>
+  </div>
+  <div>
+    <label for="date">Data zamówienia:</label>
+    <input type="date" id="date" formControlName="date">
+    <div class="error" *ngIf="newComment.controls['date'].invalid && newComment.controls['date'].touched">
+      Podaj poprawną datę.
+    </div>
+  </div>
+
+  <button [disabled]="!form.valid" [ngClass]="!form.valid ? 'disabled' : ''">Comment</button>
+</form>

@@ -1,0 +1,17 @@
+<div class="wrapper">
+  <div class="about" *ngIf="user.currentUser !== null">
+    <div>Username:</div>
+    <div>{{user.currentUser.username}}</div>
+
+    <div>Email:</div>
+    <div>{{user.currentUser.email}}</div>
+
+    <div>Roles:</div>
+    <div>
+      <p *ngFor="let role of user.currentUser.rolesIDs">{{role}}</p>
+    </div>
+
+    <div>Banned:</div>
+    <div>{{user.isBanned() ? 'Yes' : 'No'}}</div>
+  </div>
+</div>

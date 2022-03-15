@@ -1,0 +1,34 @@
+<div class="wrapper">
+  <form #form="ngForm" [formGroup]="registerCredentials" (ngSubmit)="onSubmit(form)">
+    <div>
+      <label for="username">Nazwa użytkownika*:</label>
+      <input type="text" id="username" formControlName="username">
+      <div class="error" *ngIf="registerCredentials.controls['username'].invalid && registerCredentials.controls['username'].touched">
+        Podaj nazwę użytkownika o długości conajmniej 3.
+      </div>
+    </div>
+    <div>
+      <label for="email">Email*:</label>
+      <input type="email" id="email" formControlName="email">
+      <div class="error" *ngIf="registerCredentials.controls['email'].invalid && registerCredentials.controls['email'].touched">
+        Podaj email.
+      </div>
+    </div>
+    <div>
+      <label for="password">Hasło*:</label>
+      <input type="password" id="password" formControlName="password">
+      <div class="error" *ngIf="registerCredentials.controls['password'].invalid && registerCredentials.controls['password'].touched">
+        Podaj hasło o długości conajmniej 3.
+      </div>
+    </div>
+    <div class="errorBox" *ngIf="errorBox.length>0">
+      <div class="error" *ngFor="let error of errorBox">{{error}}</div>
+    </div>
+    <div>
+      <a [routerLink]="['/login']">Masz już konto? Zaloguj się!</a>
+    </div>
+
+    <button [disabled]="!form.valid" [ngClass]="!form.valid ? 'disabled' : ''">Zarejestruj</button>
+  </form>
+
+</div>

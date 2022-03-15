@@ -1,0 +1,7 @@
+<div>
+  <app-star (click)="updateScore(1)" [selected]="(dish.userRating) ? dish.userRating >= 1 : false"></app-star>
+  <app-star (click)="updateScore(2)" [selected]="(dish.userRating) ? dish.userRating >= 2 : false"></app-star>
+  <app-star (click)="updateScore(3)" [selected]="(dish.userRating) ? dish.userRating >= 3 : false"></app-star>
+  <app-star (click)="updateScore(4)" [selected]="(dish.userRating) ? dish.userRating >= 4 : false"></app-star>
+  <app-star (click)="updateScore(5)" [selected]="(dish.userRating) ? dish.userRating >= 5 : false"></app-star>
+</div>

@@ -1,0 +1,24 @@
+<app-pagination-selector [(perPage)]="perPage"></app-pagination-selector>
+
+<ul *ngIf="dishesList.length > 0 && !loading"> <!-- .slice((page-1)*perPage, (page-1)*perPage + perPage) -->
+  <li *ngFor="let dish of dishesList | slice : ((page-1)*perPage) : ((page-1)*perPage + perPage); let i = index; trackBy:trackByIndex">
+    <app-dish [(dish)]="dishesList.slice((page-1)*perPage, (page-1)*perPage + perPage)[i]" [isCheapest]="dish.price === lowestPrice" [isMostExpensive]="dish.price === highestPrice"></app-dish>
+  </li>
+</ul>
+
+<ul *ngIf="loading">
+  Wczytywanie dań...
+</ul>
+
+<div class="buttons" *ngIf="dishesList.length > 0 ">
+  <div class="prev" (click)="prevPage()">< Previous</div>
+  <div class="page">{{page}}</div>
+  <div class="next" (click)="nextPage()">Next ></div>
+</div>
+
+
+<ul *ngIf="dishesList.length === 0 && !loading">
+  Brak dan spelniajacych podane kategorie
+</ul>
+
+

@@ -1,0 +1,61 @@
+
+
+<div class="wrapper">
+  <form #f="ngForm" (ngSubmit)="submit(f)" [formGroup]="newDish" class="form-group">
+    <label for="name">Podaj nazwe*</label>
+    <input type="text" name="name" formControlName="name" id="name" minlength="3" class="form-control">
+    <div class="error" *ngIf="newDish.controls['name'].invalid && newDish.controls['name'].touched">
+      Podaj nazwę o długości conajmniej 3
+    </div>
+
+    <label for="cuisine">Podaj typ kuchni*</label>
+    <input type="text" name="cuisine" formControlName="cuisine" id="cuisine" class="form-control">
+    <div class="error" *ngIf="newDish.controls['cuisine'].invalid && newDish.controls['cuisine'].touched">
+      Podaj nazwę o długości conajmniej 3
+    </div>
+
+    <label for="type">Podaj typ dania*</label>
+    <input type="text" name="type" formControlName="type" id="type" class="form-control">
+    <div class="error" *ngIf="newDish.controls['type'].invalid && newDish.controls['type'].touched">
+      Podaj nazwę o długości conajmniej 3
+    </div>
+
+    <label for="category">Podaj kategorie*</label>
+    <input type="text" name="category" formControlName="category" id="category" class="form-control">
+    <div class="error" *ngIf="newDish.controls['category'].invalid && newDish.controls['category'].touched">
+      Podaj nazwę o długości conajmniej 3
+    </div>
+
+    <label for="ingredients">Podaj skladniki</label>
+    <textarea name="ingredients" formControlName="ingredients" id="ingredients" class="form-control"></textarea>
+    <div class="error" *ngIf="newDish.controls['ingredients'].invalid && newDish.controls['ingredients'].touched">
+      Opis składników powinien mieć conajmniej 5 liter
+    </div>
+
+    <label for="maxAmount">Podaj ilosc dostepnych porcji*</label>
+    <input type="text" name="maxAmount" formControlName="maxAmount" id="maxAmount" class="form-control">
+    <div class="error" *ngIf="newDish.controls['maxAmount'].invalid && newDish.controls['maxAmount'].touched">
+      Podaj ilosc w postaci cyfry
+    </div>
+
+    <label for="price">Podaj cene*</label>
+    <input type="text" name="price" formControlName="price" id="price" class="form-control">
+    <div class="error" *ngIf="newDish.controls['price'].invalid && newDish.controls['price'].touched">
+      Podaj ilosc w postaci cyfry
+    </div>
+
+    <label for="description">Podaj opis</label>
+    <textarea name="description" formControlName="description" id="description" class="form-control"></textarea>
+    <div class="error" *ngIf="newDish.controls['description'].invalid && newDish.controls['description'].touched">
+      Błąd
+    </div>
+
+    <label for="imageLinks">Podaj link do zdjecia*</label>
+    <input type="text" name="imageLinks" formControlName="imageLinks" id="imageLinks" class="form-control">
+    <div class="error" *ngIf="newDish.controls['imageLinks'].invalid && newDish.controls['imageLinks'].touched">
+      Podaj link do zdjęcia w postaci http(s)://link
+    </div>
+
+    <button [disabled]="!f.valid" [ngClass]="(!f.valid) ? 'disabled' : ''">Dodaj</button>
+  </form>
+</div>

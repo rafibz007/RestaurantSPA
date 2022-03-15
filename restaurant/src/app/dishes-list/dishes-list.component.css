@@ -1,0 +1,64 @@
+*{
+  box-sizing: border-box;
+}
+
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 50px;
+}
+
+li{
+  height: 150px;
+  min-width: 420px;
+  max-width: 600px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.35);
+  position: relative;
+}
+
+.delete{
+  position: absolute;
+  opacity: 30%;
+  top: 10px;
+  right: 10px;
+  border: 0;
+  background: #ff4747;
+  color: white;
+  padding: 5px;
+  min-width: 30px;
+  min-height: 30px;
+  border-radius: 10px;
+}
+
+.delete:hover{
+  cursor: pointer;
+  opacity: 100%;
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  user-select: none;
+}
+
+.buttons>*{
+  padding: 10px;
+}
+
+.next:hover,
+.prev:hover{
+  color: grey;
+  cursor: pointer;
+}

@@ -1,0 +1,27 @@
+<figure [ngClass]=" (isCheapest) ? 'cheapest' : ((isMostExpensive) ? 'most-expensive' : '')" *ngIf="dish">
+  <picture [routerLink]="['/products/' + dish._id]">
+    <img [src]="dish.imageLink.length > 0 ? dish.imageLink[0] : ''" alt="">
+  </picture>
+  <figcaption>
+    <header>{{dish.name + " (" + dish.cuisine + ")" | uppercase}}</header>
+    <article *ngIf="dish.description">{{(dish.description.length>60) ? (dish.description | slice:0:57) + "..." : (dish.description)}}</article>
+    <article *ngIf="!dish.description">Brak opisu</article>
+    <div class="details">
+      <div class="amount" [ngClass]="dish.maxServingAmount - dish.selectedAmount <= 5 ? 'low' : ''">POZOSTAŁO: {{dish.maxServingAmount - dish.selectedAmount}}</div>
+      <div class="price">{{dish.price | currencyConverter}}</div>
+    </div>
+    <div class="extra">
+      <app-dish-selector class="buttons" [dish]="dish" *ngIf="dish.maxServingAmount>0 && user.isClient()"></app-dish-selector>
+      <div class="buttons" *ngIf="dish.maxServingAmount===0 && user.isClient()">
+        <p>NIEDOSTĘPNE</p>
+      </div>
+      <div class="buttons" *ngIf="!user.isClient()"></div>
+      <div class="rating">
+
+        <p>Rating:</p>
+        <div class="score">{{dish.rating | number : '1.2-2'}} ({{dish.amountOfRatings | ratingNotation}})</div>
+      </div>
+    </div>
+  </figcaption>
+</figure>
+

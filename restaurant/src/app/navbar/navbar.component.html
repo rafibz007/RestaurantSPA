@@ -1,0 +1,19 @@
+<nav>
+
+  <a class="menu" [routerLink]="['/products']">Menu</a>
+  <a class="home" [routerLink]="['/']">Home</a>
+
+  <a class="basket" [routerLink]="['/cart']" *ngIf="user.isClient()">
+    Koszyk
+    <span class="amount" [style.backgroundColor]=" (amount >= 10) ? 'blue' : 'orange' ">{{amount}}</span>
+  </a>
+
+  <a class="admin" [routerLink]="['/admin']" *ngIf="user.isAdmin()">Panel Admina</a>
+  <a class="manager" [routerLink]="['/manager']" *ngIf="user.isManager()">Zarządzanie Daniami</a>
+
+
+  <a class="user" [routerLink]="['/user']" *ngIf="user.isLoggedIn() && user.currentUser !== null">{{user.currentUser.username}}</a>
+  <a class="login" [routerLink]="['/login']" *ngIf="!user.isLoggedIn()">Login</a>
+  <a class="register" [routerLink]="['/register']" *ngIf="!user.isLoggedIn()">Register</a>
+  <a class="logout" (click)="auth.logout()" [routerLink]="['/']" *ngIf="user.isLoggedIn()">Logout</a>
+</nav>

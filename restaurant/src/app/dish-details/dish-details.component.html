@@ -1,0 +1,71 @@
+<div class="wrapper">
+  <app-go-back-button></app-go-back-button>
+</div>
+
+<div class="dish" *ngIf="dish !== null">
+  <app-gallery [imgURLs]="dish.imageLink" class="gallery" [boxSize]="300"></app-gallery>
+  <div class="about">
+    <div class="info">
+      <h1>Nazwa: {{dish.name}}</h1>
+      <h2>Kuchnia: {{dish.cuisine}}</h2>
+      <h2>Typ: {{dish.type}}</h2>
+      <h2>Kategoria: {{dish.category}}</h2>
+      <h3>Cena: {{dish.price | currencyConverter}}</h3>
+    </div>
+
+    <div class="selection" *ngIf="user.isClient()">
+      <h4 [ngClass]="dish.maxServingAmount - dish.selectedAmount <= 5 ? 'low' : ''">POZOSTAŁO: {{dish.maxServingAmount - dish.selectedAmount}}</h4>
+      <app-dish-selector [dish]="dish"></app-dish-selector>
+    </div>
+
+    <div class="rating">
+      <app-ratings [dish]="dish" *ngIf="user.hasOrderedDish(dish) && user.isClient() && !user.isBanned()"></app-ratings>
+      <h4 *ngIf="!user.hasOrderedDish(dish) || !(user.isClient() && !user.isBanned())">Rating:</h4>
+      <h5>{{dish.rating | number:'1.2-2'}}</h5>
+      <h5>({{dish.amountOfRatings | ratingNotation }})</h5>
+    </div>
+
+
+    <article class="description" *ngIf="dish.description">
+      <h3>Opis:</h3>
+      <p *ngFor="let line of dish.description.split('\n')">{{line}}</p>
+    </article>
+    <article class="description" *ngIf="!dish.description">
+      <h3>Opis:</h3>
+      <p>Brak opisu</p>
+    </article>
+
+    <article class="ingredients" *ngIf="dish.ingredients">
+      <h3>Składniki:</h3>
+      <p *ngFor="let ingredient of dish.ingredients.split('\n')">{{ingredient}}</p>
+    </article>
+    <article class="ingredients" *ngIf="!dish.ingredients">
+      <h3>Składniki:</h3>
+      <p>Nie podano składników</p>
+    </article>
+
+    <h1 *ngIf="user.hasOrderedDish(dish) && user.isClient() && !user.isBanned()">Skomentuj</h1>
+    <app-comments-form [id]="dish._id" *ngIf="user.hasOrderedDish(dish) && user.isClient() && !user.isBanned()"></app-comments-form>
+
+    <h1>Komentarze:</h1>
+    <ul class="comments" *ngIf="comments !== null && comments.length > 0 && !loading">
+      <li *ngFor="let comment of comments">
+        <h1>{{comment.name}}</h1>
+        <article>{{comment.body}}</article>
+        <h2>by {{comment.nick}}</h2>
+        <h2 *ngIf="comment.date">{{comment.date}}</h2>
+      </li>
+    </ul>
+    <ul class="comments" *ngIf="comments === null || comments.length === 0 && !loading">
+      <li>Bądź pierwszym komentującym.</li>
+    </ul>
+    <ul class="comments" *ngIf="loading">
+      <li>Wczytywanie komentarzy...</li>
+    </ul>
+
+  </div>
+</div>
+
+<div class="not-found" *ngIf="dish === null">
+  No dish with given ID
+</div>

@@ -1,0 +1,39 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div{
+  width: 100%;
+  text-align: center;
+}
+
+.edit, .delete{
+  text-decoration: underline;
+  color: #000083;
+}
+
+.edit:hover, .delete:hover{
+  cursor: pointer;
+}
+
+table{
+  max-width: 800px;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px auto;
+}
+
+tr{
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+td{
+  padding: 5px;
+}
+
+td:not(:first-of-type){
+  text-align: center;
+}

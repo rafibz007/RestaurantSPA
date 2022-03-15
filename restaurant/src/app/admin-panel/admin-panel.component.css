@@ -1,0 +1,81 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+table{
+  width: 100%;
+  max-width: 600px;
+  margin: 30px auto;
+  border-collapse: collapse;
+}
+
+
+td{
+  padding: 10px;
+  text-align: center;
+}
+
+tr{
+  border-radius: 10px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+button{
+  width: 100px;
+  height: 63px;
+  background: unset;
+  border: unset;
+  border-radius: 5px;
+  font-weight: 900;
+}
+
+.succeeded{
+  background: rgba(173, 255, 47, 0.24);
+}
+
+.failed{
+  background: rgba(255, 0, 0, 0.4);
+}
+
+.do{
+  background: #880101;
+  color: white;
+}
+
+.undo{
+  background: #006700;
+  color: white;
+}
+
+.submit{
+  background: #3e3ec4;
+  color: white;
+}
+
+.do:hover{
+  background: #9d0000;
+  cursor: pointer;
+}
+
+.undo:hover{
+  background: #008000;
+  cursor: pointer;
+}
+
+.submit:hover{
+  background: #4444de;
+  cursor: pointer;
+}
+
+.myself{
+  font-weight: 900;
+  color: #2f1a2c;
+}
+
+.disabled, .disabled:hover{
+  background: grey;
+  cursor: unset;
+}

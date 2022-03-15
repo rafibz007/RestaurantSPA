@@ -1,0 +1,24 @@
+<table>
+  <tr *ngFor="let user of users; let i = index" [ngClass]="user.updateSucceeded === null ? '' : (user.updateSucceeded ? 'succeeded' : 'failed')" (click)="test(user)">
+    <td [ngClass]="loggedUser.currentUser !== null && user._id === loggedUser.currentUser._id ? 'myself' : ''">{{user.username}}</td>
+    <td>
+      <button *ngIf="user.isBanned"  (click)="unban(user)" class="undo">Unban</button>
+      <button *ngIf="!user.isBanned" (click)="ban(user)" class="do">Ban</button>
+    </td>
+    <td>
+      <button *ngIf="user.rolesIDs.has(CLIENT)"  (click)="unmakeClient(user)" class="undo">Unmake Client</button>
+      <button *ngIf="!user.rolesIDs.has(CLIENT)" (click)="makeClient(user)" class="do">Make Client</button>
+    </td>
+    <td>
+      <button *ngIf="user.rolesIDs.has(MANAGER)"  (click)="unmakeManager(user)" class="undo">Unmake Manager</button>
+      <button *ngIf="!user.rolesIDs.has(MANAGER)" (click)="makeManager(user)" class="do">Make Manager</button>
+    </td>
+    <td>
+      <button *ngIf="user.rolesIDs.has(ADMIN)"  (click)="unmakeAdmin(user)" class="undo">Unmake Admin</button>
+      <button *ngIf="!user.rolesIDs.has(ADMIN)" (click)="makeAdmin(user)" class="do">Make Admin</button>
+    </td>
+    <td>
+      <button [disabled]="!user.changed" (click)="submitChanges(user, i)" class="submit" [ngClass]="user.changed ? '' : 'disabled'">Submit</button>
+    </td>
+  </tr>
+</table>

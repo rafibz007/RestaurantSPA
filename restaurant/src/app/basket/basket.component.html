@@ -1,0 +1,14 @@
+<div class="summary">
+  <div class="total">Łącznie: {{sum | currencyConverter}}</div>
+  <button class="check-out">DO KASY</button>
+</div>
+
+<ul *ngIf="!loading">
+  <li *ngFor="let dish of selectedDishes; let i = index ">
+    <app-dish [(dish)]="selectedDishes[i]"></app-dish>
+  </li>
+</ul>
+
+<ul *ngIf="loading">
+  Wczytywanie dań...
+</ul>
