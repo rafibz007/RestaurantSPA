@@ -1,6 +1,0 @@
-[
-    {"_id":{"$oid":"61e171ad61aa71e689edbb6c"},"username":"admin","email":"admin@admin.pl","passwordHash":"$2a$12$lIrZ/X/x3MS4lBilOurhZeLzlbylmihYSjBgaUofuRFaYFVoXTMge","rolesIDs":["0","1","2"],"isBanned":false,"__v":{"$numberInt":"0"}},
-    {"_id":{"$oid":"61e6a72c551bd265dc0b84db"},"username":"client1","email":"client1@client1.pl","passwordHash":"$2a$12$fPr4YrMG.Jx1REz2Yo.C/.qKmiOi7xV8tXeQgu8OdyVJhuF/fKsnS","rolesIDs":["2"],"isBanned":false,"__v":{"$numberInt":"0"}},
-        {"_id":{"$oid":"61e6a761551bd265dc0b84eb"},"username":"client2","email":"client2@client2.pl","passwordHash":"$2a$12$H2qmJnJl/q2D4vnIjhoLpO6K/9YZQKRqIZ7Bm1vElWongLQWEr8ai","rolesIDs":["2"],"isBanned":false,"__v":{"$numberInt":"0"}},
-            {"_id":{"$oid":"61e6a777551bd265dc0b84ee"},"username":"manager","email":"manager@manager.pl","passwordHash":"$2a$12$VrCLBe25L1hUFnihYwbIReskNI9OnBGHxIT/xteUjVnca.jPk0Es.","rolesIDs":["2","1"],"isBanned":false,"__v":{"$numberInt":"0"}}
-]
