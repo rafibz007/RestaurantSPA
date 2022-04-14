@@ -33,6 +33,27 @@ By doing it I have got basic understanding of how these frameworks work. <br/>
 <br/>
 
 # How to use
+## Docker
+This project was created befeore I though about adding Docker, so it is not customizable very much.   
+Docker compose starts database with custom data.    
+
+You should now have access to:
+  - <a>http://localhost:4200/</a> - front
+  - <a>http://localhost:3000/</a> - back
+  - <a>http://localhost:8088/</a> - database explorer
+
+Start containers:
+```
+sudo docker-compose -f docker-compose.yaml up -d
+```
+
+
+
+Close containers:
+```
+sudo docker-compose -f docker-compose.yaml down
+```
+## Normal
 In "backend" folder ".env" file with provided variables is required:  
   - DB_CONNECTION=mongodb+srv://user:password@db
   - JWT_SECRET=secret
