@@ -51,12 +51,12 @@ Available accounts: (username-password)
 
 Start containers:
 ```
-sudo docker-compose -f docker-compose.yaml up -d
+docker-compose -f docker-compose.yaml up -d
 ```
 
 Close containers:
 ```
-sudo docker-compose -f docker-compose.yaml down
+docker-compose -f docker-compose.yaml down
 ```
 ## Normal
 In "backend" folder ".env" file with provided variables is required:  
