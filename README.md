@@ -34,7 +34,7 @@ By doing it I have got basic understanding of how these frameworks work. <br/>
 
 # How to use
 ## Docker
-This project was created befeore I though about adding Docker, so it is not customizable very much.   
+This project was created befeore I though about adding Docker, so unfortunately it is not customizable very much.   
 Docker compose starts database with custom data.    
 
 You should now have access to:
@@ -42,12 +42,17 @@ You should now have access to:
   - <a>http://localhost:3000/</a> - back
   - <a>http://localhost:8088/</a> - database explorer
 
+Available accounts: (username-password)
+  - admin-admin
+  - manager-manager
+  - client1-client1
+  - client2-client2
+  - client3-client3
+
 Start containers:
 ```
 sudo docker-compose -f docker-compose.yaml up -d
 ```
-
-
 
 Close containers:
 ```
