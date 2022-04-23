@@ -33,7 +33,7 @@ By doing it I have got basic understanding of how these frameworks work. <br/>
 <br/>
 
 # How to use
-## Docker
+## Docker - temporarily unavailable
 This project was created befeore I though about adding Docker, so unfortunately it is not customizable very much.   
 Docker compose starts database with custom data.    
 
